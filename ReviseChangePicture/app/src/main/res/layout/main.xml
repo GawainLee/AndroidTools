@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://i1.ce.cn/sci/yzdq/dq/dqxw/200809/11/W020080911358005522579.jpg"
+    tools:context=".MainActivity"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.tapwater.reviseallkindtext.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我爱Java"
+        android:textSize="20dp"
+        android:drawableEnd="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="我爱Java~我爱Java~我爱Java~我爱Java~"
+        android:ellipsize="middle"
+        android:textAllCaps="true"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="邮箱：lzqweasz@126.com, 电话：56185968"
+        android:autoLink="email|phone"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试字体"
+        android:shadowColor="#f00"
+        android:shadowDx="10.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="3.0"
+        android:textColor="#00f"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="123p"
+        android:textSize="20"
+        android:password="true" />
+
+    <CheckedTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="可勾选"
+        android:textSize="20dp"
+        android:checkMark="@mipmap/ic_launcher"/>
+</LinearLayout>

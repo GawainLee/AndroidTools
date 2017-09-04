@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Learn_30_DownloadFile</string>
+    <string name="action_settings">Settings</string>
+    <string name="downloadURLAddress">Download URL Address</string>
+    <string name="downloadFile">Download File</string>
+    <string name="downloadMP3">Download MP3</string>
+</resources>

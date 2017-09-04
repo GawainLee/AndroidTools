@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.tapwater.myapplication.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:id="@+id/textViewName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Please enter your name"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textViewName"
+        android:layout_toEndOf="@+id/textViewName" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/normalButton"
+        android:id="@+id/buttonNormalButton"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:background="#aaddaa"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_below="@+id/buttonNormalButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button One"
+        android:id="@+id/buttonOne"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button Two"
+        android:id="@+id/buttonTwo"
+        android:layout_below="@+id/buttonOne"
+        android:layout_alignParentLeft="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button Third"
+        android:id="@+id/buttonThird"
+        android:layout_below="@+id/buttonTwo"
+        android:layout_alignParentLeft="true" />
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/autoCompleteTextView"
+        android:hint="@string/searchKey"
+        android:layout_below="@+id/buttonThird"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:completionThreshold="3" />
+
+    <MultiAutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/searchKey"
+        android:id="@+id/multiAutoCompleteTextView"
+        android:layout_below="@+id/autoCompleteTextView"
+        android:layout_centerHorizontal="true"
+        android:completionThreshold="3" />
+
+    <ToggleButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOn="AUTO"
+        android:textOff="OFF"
+        android:checked="true"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton"
+        android:layout_below="@+id/multiAutoCompleteTextView"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

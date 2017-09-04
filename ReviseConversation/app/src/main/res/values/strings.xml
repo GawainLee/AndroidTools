@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ReviseConversation</string>
+    <item name="Tag_Friend" type="id"></item>
+    <item name="Tag_User" type="id"></item>
+</resources>

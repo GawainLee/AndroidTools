@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Learn_22_BaseAdapter</string>
+    <string name="action_settings">Settings</string>
+    <string name="item_image_view">itme_picture</string>
+</resources>
