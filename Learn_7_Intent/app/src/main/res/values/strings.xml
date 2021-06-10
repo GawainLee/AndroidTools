@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Learn_7_Intent</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_first">FirstActivity</string>
-    <string name="first_button">First Button</string>
-    <string name="second_button">Second Button</string>
-    <string name="result">Result</string>
-    <string name="go_back">Return</string>
-</resources>

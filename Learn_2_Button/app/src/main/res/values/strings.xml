@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Learn_2_Button</string>
-    <string name="action_settings">Settings</string>
-    <string name="name">Name</string>
-    <string name="nameHint">Please enter your name</string>
-    <string name="submit">Submit</string>
-</resources>

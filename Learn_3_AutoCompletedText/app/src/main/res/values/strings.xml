@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Learn_3_AutoCompletedText</string>
-    <string name="action_settings">Settings</string>
-    <string name="subject">Subject</string>
-    <string name="to">To</string>
-    <string name="pleaseEnter">Please Enter</string>
-    <string name="submit">Submit</string>
-</resources>
