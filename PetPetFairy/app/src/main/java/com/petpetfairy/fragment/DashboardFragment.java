@@ -24,8 +24,8 @@ public class DashboardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        mTextTitle = (TextView) root.findViewById(R.id.text_title_dashboard);
-        mTextDetail = (TextView) root.findViewById(R.id.text_detail_dashboard);
+//        mTextTitle = (TextView) root.findViewById(R.id.text_title_dashboard);
+//        mTextDetail = (TextView) root.findViewById(R.id.text_detail_dashboard);
         return root;
     }
 

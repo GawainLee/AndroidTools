@@ -81,7 +81,8 @@ public class HomeFragment extends Fragment implements PetListAdapter.OnItemClick
 
     private void getPetList(){
 //        String url = "https://pixabay.com/api/?key=21416733-030cfcaa6ccf5e3a4db3e4e8a&q=puppy&image_type=photo";
-        String url = "http://35.241.89.109/Petpetfairy-1-0.0.1-SNAPSHOT/getPetList";
+//        String url = "http://35.241.89.109/Petpetfairy-1-0.0.1-SNAPSHOT/getPetList";
+        String url = "http://35.241.89.109/Petpetfairy-1-0.0.1-SNAPSHOT/getPetListNotAdopted";
 
         JsonArrayRequest mJsonObjectRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -212,26 +213,26 @@ public class HomeFragment extends Fragment implements PetListAdapter.OnItemClick
         getPetDetailById(clickItem.getPetListItemId());
     }
 
-    public void onOpenDetail(String message) {
-        FragmentTransaction fragmentTransaction = getActivity().getFragmentManager().beginTransaction();
-
-        if (mHomeFragment != null && !mHomeFragment.isHidden()) {
-            fragmentTransaction.hide(mHomeFragment);
-            fragmentTransaction.addToBackStack(HOME);
-        }
-
-//        if (mDashboardFragment != null && !mDashboardFragment.isHidden()) {
-//            fragmentTransaction.hide(mDashboardFragment).addToBackStack(DASHBOARD);
+//    public void onOpenDetail(String message) {
+//        FragmentTransaction fragmentTransaction = getActivity().getFragmentManager().beginTransaction();
+//
+//        if (mHomeFragment != null && !mHomeFragment.isHidden()) {
+//            fragmentTransaction.hide(mHomeFragment);
+//            fragmentTransaction.addToBackStack(HOME);
 //        }
-//        if (mNotificationsFragment != null && !mNotificationsFragment.isHidden()) {
-//            fragmentTransaction.hide(mNotificationsFragment).addToBackStack(NOTIFICATIONS);
-//        }
-
-        DetailFragment fragment = new DetailFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString(DETAIL_MESSAGE, message);
-        fragment.setArguments(bundle);
-
-        fragmentTransaction.add(R.id.container_main, fragment, DETAIL).commit();
-    }
+//
+////        if (mDashboardFragment != null && !mDashboardFragment.isHidden()) {
+////            fragmentTransaction.hide(mDashboardFragment).addToBackStack(DASHBOARD);
+////        }
+////        if (mNotificationsFragment != null && !mNotificationsFragment.isHidden()) {
+////            fragmentTransaction.hide(mNotificationsFragment).addToBackStack(NOTIFICATIONS);
+////        }
+//
+//        DetailFragment fragment = new DetailFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putString(DETAIL_MESSAGE, message);
+//        fragment.setArguments(bundle);
+//
+//        fragmentTransaction.add(R.id.container_main, fragment, DETAIL).commit();
+//    }
 }

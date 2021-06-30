@@ -13,4 +13,6 @@
     <color name="pink_100">#F8BBD0</color>
     <color name="purple_100">#E1BEE7</color>
     <color name="teal_100">#B2DFDB</color>
+
+    <color name="md_blue_200">#90CAF9</color>
 </resources>

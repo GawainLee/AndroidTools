@@ -5,14 +5,23 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.petpetfairy.fragment.DashboardFragment;
-import com.petpetfairy.fragment.DetailFragment;
 import com.petpetfairy.fragment.HomeFragment;
 import com.petpetfairy.fragment.NotificationsFragment;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.Arrays;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringDef;
@@ -24,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private HomeFragment mHomeFragment;
     private DashboardFragment mDashboardFragment;
     private NotificationsFragment mNotificationsFragment;
+    private AdView mAdView;
 
     @Retention(RetentionPolicy.SOURCE)
     @StringDef({
@@ -51,7 +61,57 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //        ((BottomNavigationView) findViewById(R.id.navigation)).setOnNavigationItemSelectedListener(this);
 //        ((BottomNavigationView) findViewById(R.id.navigation)).setSelectedItemId(R.id.navigation_home);
 
+        getAds();
+    }
 
+    public void getAds(){
+        AdView adView = new AdView(this);
+
+        adView.setAdSize(AdSize.BANNER);
+
+        adView.setAdUnitId("ca-app-pub-4726414806993065/6407820358");
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        MobileAds.setRequestConfiguration(
+                new RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("ABCDEF012345"))
+                        .build());
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(LoadAdError adError) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        });
     }
 
 
@@ -111,28 +171,28 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         this.isOnHome = false;
     }
 
-    public void onOpenDetail(String message) {
-
-        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-
-        if (mHomeFragment != null && !mHomeFragment.isHidden()) {
-            fragmentTransaction.hide(mHomeFragment);
-            fragmentTransaction.addToBackStack(HOME);
-        }
-        if (mDashboardFragment != null && !mDashboardFragment.isHidden()) {
-            fragmentTransaction.hide(mDashboardFragment).addToBackStack(DASHBOARD);
-        }
-        if (mNotificationsFragment != null && !mNotificationsFragment.isHidden()) {
-            fragmentTransaction.hide(mNotificationsFragment).addToBackStack(NOTIFICATIONS);
-        }
-
-        DetailFragment fragment = new DetailFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString(DETAIL_MESSAGE, message);
-        fragment.setArguments(bundle);
-
-        fragmentTransaction.add(R.id.container_main, fragment, DETAIL).commit();
-    }
+//    public void onOpenDetail(String message) {
+//
+//        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+//
+//        if (mHomeFragment != null && !mHomeFragment.isHidden()) {
+//            fragmentTransaction.hide(mHomeFragment);
+//            fragmentTransaction.addToBackStack(HOME);
+//        }
+//        if (mDashboardFragment != null && !mDashboardFragment.isHidden()) {
+//            fragmentTransaction.hide(mDashboardFragment).addToBackStack(DASHBOARD);
+//        }
+//        if (mNotificationsFragment != null && !mNotificationsFragment.isHidden()) {
+//            fragmentTransaction.hide(mNotificationsFragment).addToBackStack(NOTIFICATIONS);
+//        }
+//
+//        DetailFragment fragment = new DetailFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putString(DETAIL_MESSAGE, message);
+//        fragment.setArguments(bundle);
+//
+//        fragmentTransaction.add(R.id.container_main, fragment, DETAIL).commit();
+//    }
 
     @Override
     public void onBackPressed() {
@@ -144,5 +204,32 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         else {
             bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         }
+    }
+
+    /** Called when leaving the activity */
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    /** Called when returning to the activity */
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed */
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 }
