@@ -146,7 +146,7 @@ public class HomeFragment extends Fragment implements PetListAdapter.OnItemClick
                     petDetail.setPetBreed(response.getString("petBreed"));
                     petDetail.setPetSex(response.getString("petSex"));
                     String petBrithday = (response.getString("petBrithday"));
-                    petDetail.setPetAge(response.getInt("petAge"));
+                    petDetail.setPetAge(response.getString("petAge"));
                     petDetail.setPetCenter(response.getString("petCenter"));
                     petDetail.setPetIntake(response.getString("petIntake"));
                     petDetail.setPetMicrochip(response.getString("petMicrochip"));
@@ -165,7 +165,10 @@ public class HomeFragment extends Fragment implements PetListAdapter.OnItemClick
                         PetDetailImage petDetailImage = new PetDetailImage(
                                 petDetailImageJson.getInt("idPetDetailImage"),
                                 petDetailImageJson.getString("petDetailPetLink"),
-                                petDetailImageJson.getString("petDetailImageLink")
+                                petDetailImageJson.getString("petDetailImageLink"),
+                                petDetailImageJson.getInt("petDetailImageWeight"),
+                                petDetailImageJson.getInt("petDetailImageHeight")
+
                         );
                         petDetailImageList.add(petDetailImage);
                     }

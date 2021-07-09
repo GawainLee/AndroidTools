@@ -6,6 +6,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.petpetfairy.MainActivity;
@@ -32,6 +33,7 @@ public class DetailFragment extends Fragment {
     private TextView mTextViewPetDetail;
 //    private ImageView mImageViewPetImage;
     private TextView mTextViewPetDetailLink;
+    private LinearLayout mViewPageLayout;
 
     private ViewPager mViewPager;
     private DotsIndicator mDotsIndicator;
@@ -50,6 +52,8 @@ public class DetailFragment extends Fragment {
         mTextViewPetDetailLink = (TextView) root.findViewById(R.id.text_view_pet_detail_link);
         mViewPager = root.findViewById(R.id.viewpager_detail);
         mDotsIndicator = (DotsIndicator) root.findViewById(R.id.dots_indicator);
+        mViewPageLayout = (LinearLayout) root.findViewById(R.id.viewpager_layout);
+
         return root;
     }
 
@@ -70,6 +74,9 @@ public class DetailFragment extends Fragment {
                 String nullString = "null";
                 if(petDetail.getAgencyName() !=null && petDetail.getAgencyName().length() > 0 && !nullString.equals(petDetail.getAgencyName())){
                     petDetailString += "Agency Name :\n" + petDetail.getAgencyName() + "\n";
+                }
+                if(petDetail.getPetAge() !=null && petDetail.getPetAge().length() > 0 && !nullString.equals(petDetail.getPetAge()) && !petDetail.getPetAge().equals("0")){
+                    petDetailString += "Age :\n" + petDetail.getPetAge() + "\n";
                 }
                 if(petDetail.getPetCenter() !=null && petDetail.getPetCenter().length() > 0 && !nullString.equals(petDetail.getPetCenter())){
                     petDetailString += "Center :\n" + petDetail.getPetCenter() + "\n" ;
@@ -108,6 +115,10 @@ public class DetailFragment extends Fragment {
                 }
 
                 //*************
+                if(petDetailImages.get(0).getPetDetailImageWeight() < petDetailImages.get(0).getPetDetailImageHeight()){
+                    mViewPageLayout.getLayoutParams().height = 1100;
+                    mViewPageLayout.requestLayout();
+                }
                 ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity(), petDetailImages);
                 mViewPager.setAdapter(adapter);
                 mDotsIndicator.setViewPager(mViewPager);

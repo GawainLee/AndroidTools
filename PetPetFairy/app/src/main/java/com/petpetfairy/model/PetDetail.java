@@ -13,7 +13,7 @@ public class PetDetail implements Parcelable {
     private String petIdByAgency;
     private String petSex;
     private Date petBirthday;
-    private int petAge = 0;
+    private String petAge = "0";
     private String petCenter;
     private String petIntake;
     private String petMicrochip;
@@ -29,7 +29,7 @@ public class PetDetail implements Parcelable {
     public PetDetail() {
     }
 
-    public PetDetail(int id, String petName, String petBreed, String petIdByAgency, String petSex, Date petBirthday, int petAge, String petCenter, String petIntake, String petMicrochip, String petNote, String petDescription, Date createDate, String petDetailLink, String agencyName, String agencyLink, int petDetailLike, List<PetDetailImage> petDetailImageList) {
+    public PetDetail(int id, String petName, String petBreed, String petIdByAgency, String petSex, Date petBirthday, String petAge, String petCenter, String petIntake, String petMicrochip, String petNote, String petDescription, Date createDate, String petDetailLink, String agencyName, String agencyLink, int petDetailLike, List<PetDetailImage> petDetailImageList) {
         this.id = id;
         this.petName = petName;
         this.petBreed = petBreed;
@@ -56,7 +56,7 @@ public class PetDetail implements Parcelable {
         petBreed = in.readString();
         petIdByAgency = in.readString();
         petSex = in.readString();
-        petAge = in.readInt();
+        petAge = in.readString();
         petCenter = in.readString();
         petIntake = in.readString();
         petMicrochip = in.readString();
@@ -128,11 +128,11 @@ public class PetDetail implements Parcelable {
         this.petBirthday = petBirthday;
     }
 
-    public int getPetAge() {
+    public String getPetAge() {
         return petAge;
     }
 
-    public void setPetAge(int petAge) {
+    public void setPetAge(String petAge) {
         this.petAge = petAge;
     }
 
@@ -260,7 +260,7 @@ public class PetDetail implements Parcelable {
         parcel.writeString(petBreed);
         parcel.writeString(petIdByAgency);
         parcel.writeString(petSex);
-        parcel.writeInt(petAge);
+        parcel.writeString(petAge);
         parcel.writeString(petCenter);
         parcel.writeString(petIntake);
         parcel.writeString(petMicrochip);
